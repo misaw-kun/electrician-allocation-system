@@ -4,12 +4,12 @@ import AutoAssignButton from "./components/AutoAssign";
 
 export default async function Home() {
   //*/ FETCH: site and electrician data from server
-  const electricianData = (await getData(
+  const electricianData: ElectricianData[] = await getData(
     `https://api.jsonbin.io/v3/b/${process.env.ELECTRICIAN_DATA_BIN}`
-  )) as ElectricianData[];
-  const siteData = (await getData(
+  );
+  const siteData: SiteData[] = await getData(
     `https://api.jsonbin.io/v3/b/${process.env.SITE_DATA_BIN}`
-  )) as SiteData[];
+  );
 
   return (
     <>

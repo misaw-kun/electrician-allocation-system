@@ -7,22 +7,20 @@ export const formatDate = (dateString: string): string => {
   return dateString.split("T")[0];
 };
 
-export async function getData(url: string): Promise<unknown[] | undefined> {
-  try {
-    const res = await fetch(url, {
-      headers: {
-        ...AuthHeaders,
-        "X-Bin-Meta": "false",
-      },
-      next: { revalidate: 30 },
-    });
+export async function getData(url: string) {
+  const res = await fetch(url, {
+    headers: {
+      ...AuthHeaders,
+      "X-Bin-Meta": "false",
+    },
+    next: { revalidate: 30 },
+  });
 
-    const data = await res.json();
-
-    return data;
-  } catch (error) {
-    console.log(error);
+  if (!res.ok) {
+    throw new Error("Failed to get data");
   }
+
+  return res.json();
 }
 
 //*/ Here the magic ✨ happens
