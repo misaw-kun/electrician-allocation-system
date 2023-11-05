@@ -43,56 +43,62 @@ export default async function Page({
     }, [] as FlattenedData[]);
 
     return (
-      <div className="bg-white rounded p-4 border border-black mb-4">
-        <h1 className="text-xl font-semibold mb-2 bg-black text-white inline-block p-2 uppercase">
+      <div className="bg-white rounded p-4 border border-black mb-4 overflow-x-auto">
+        <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 bg-black text-white inline-block p-2 uppercase">
           Auto Assigned Sites ✨⚡
         </h1>
         {/* CHECK: if NO ASSIGNMENTS for the given date */}
         {flattenedData?.length > 0 ? (
-          <table className="table-fixed w-full ">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 sticky top-0 bg-white border">
-                  Site Name
-                </th>
-                <th className="px-4 py-2 sticky top-0 bg-white border">
-                  Electrician Name
-                </th>
-                <th className="px-4 py-2 sticky top-0 bg-white border">
-                  Assignment Date
-                </th>
-                <th className="px-4 py-2 sticky top-0 bg-white border">
-                  Grievance Site
-                </th>
-                <th className="px-4 py-2 sticky top-0 bg-white border">
-                  Is Grievance Electrician?
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {flattenedData.map((entry, index) => (
-                <tr
-                  key={index}
-                  className={index % 2 === 1 ? "bg-gray-50" : "bg-white"}
-                >
-                  <td className="border px-4 py-2">{entry.electricianName}</td>
-                  <td className="border px-4 py-2">{entry.siteName}</td>
-                  <td className="border px-4 py-2">{entry.assignmentDate}</td>
-                  <td className="border px-4 py-2">{entry.isGrievanceSite}</td>
-                  <td className="border px-4 py-2">
-                    {entry.isGrievanceElectrician}
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full md:w-screen-lg">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="px-4 py-2 sticky top-0 bg-white border">
+                    Site Name
+                  </th>
+                  <th className="px-4 py-2 sticky top-0 bg-white border">
+                    Electrician Name
+                  </th>
+                  <th className="px-4 py-2 sticky top-0 bg-white border">
+                    Assignment Date
+                  </th>
+                  <th className="px-4 py-2 sticky top-0 bg-white border">
+                    Grievance Site
+                  </th>
+                  <th className="px-4 py-2 sticky top-0 bg-white border">
+                    Is Grievance Electrician?
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {flattenedData.map((entry, index) => (
+                  <tr
+                    key={index}
+                    className={index % 2 === 1 ? "bg-gray-50" : "bg-white"}
+                  >
+                    <td className="border px-4 py-2">
+                      {entry.electricianName}
+                    </td>
+                    <td className="border px-4 py-2">{entry.siteName}</td>
+                    <td className="border px-4 py-2">{entry.assignmentDate}</td>
+                    <td className="border px-4 py-2">
+                      {entry.isGrievanceSite}
+                    </td>
+                    <td className="border px-4 py-2">
+                      {entry.isGrievanceElectrician}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         ) : (
-          <>
+          <div>
             <h2 className="text-xl font-semibold text-black uppercase">
               🌵 No Assignments for{" "}
               <span className="bg-black p-1 text-white">{dateQuery}</span> yet
             </h2>
-          </>
+          </div>
         )}
         <Link
           href={{
@@ -105,6 +111,7 @@ export default async function Page({
         </Link>
       </div>
     );
+
   } else {
     return (
       <>

@@ -68,7 +68,6 @@ const SiteDataTable = ({
 
   return (
     <div className="bg-white rounded p-4 border border-black mb-4">
-      {/* rendering toast component on top */}
       {toastVisible && (
         <Toast
           message={message}
@@ -79,43 +78,45 @@ const SiteDataTable = ({
       <h2 className="text-xl font-semibold mb-2 bg-black text-white inline-block p-2 uppercase">
         Site Data
       </h2>
-      <table className="table-fixed w-full">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="px-4 sticky top-0 bg-white py-2 border">Name</th>
-            <th className="px-4 sticky top-0 bg-white py-2 border">Phone</th>
-            <th className="px-4 sticky top-0 bg-white py-2 border">City</th>
-            <th className="px-4 sticky top-0 bg-white py-2 border">
-              Installation Date
-            </th>
-            <th className="px-4 sticky top-0 bg-white py-2 border">
-              Grievance
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {data?.map((site, index) => (
-            <tr
-              key={index}
-              className={index % 2 === 1 ? "bg-gray-50" : "bg-white"}
-            >
-              <td className="border px-4 py-2">{site.name}</td>
-              <td className="border px-4 py-2">{site.phone}</td>
-              <td className="border px-4 py-2">{site.city}</td>
-              <td className="border px-4 py-2">
-                <DatePicker
-                  key={site.name}
-                  site={site}
-                  onUpdateDate={handleUpdateDate}
-                />
-              </td>
-              <td className="border px-4 py-2">
-                {site.grievance ? "Yes" : "No"}
-              </td>
+      <div className="overflow-x-auto">
+        <table className="min-w-full">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="px-4 sticky top-0 bg-white py-2 border">Name</th>
+              <th className="px-4 sticky top-0 bg-white py-2 border">Phone</th>
+              <th className="px-4 sticky top-0 bg-white py-2 border">City</th>
+              <th className="px-4 sticky top-0 bg-white py-2 border">
+                Installation Date
+              </th>
+              <th className="px-4 sticky top-0 bg-white py-2 border">
+                Grievance
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data?.map((site, index) => (
+              <tr
+                key={index}
+                className={index % 2 === 1 ? "bg-gray-50" : "bg-white"}
+              >
+                <td className="border px-4 py-2">{site.name}</td>
+                <td className="border px-4 py-2">{site.phone}</td>
+                <td className="border px-4 py-2">{site.city}</td>
+                <td className="border px-4 py-2">
+                  <DatePicker
+                    key={site.name}
+                    site={site}
+                    onUpdateDate={handleUpdateDate}
+                  />
+                </td>
+                <td className="border px-4 py-2">
+                  {site.grievance ? "Yes" : "No"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

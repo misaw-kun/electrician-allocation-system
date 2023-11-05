@@ -14,7 +14,7 @@ function AutoAssignButton() {
         },
       }}
     >
-      <button className="bg-white border border-black font-semibold py-2 px-4 rounded hover:bg-black hover:text-white uppercase hover:scale-105 transition duration-300">
+      <button className="bg-white border border-black font-semibold py-2 px-4 rounded hover:bg-black hover:text-white uppercase hover:scale-105 transition duration-300 mb-5 md:mb-0">
         ✨ Auto-Assign
       </button>
     </Link>
