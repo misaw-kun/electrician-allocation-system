@@ -7,10 +7,10 @@ export const dynamic = "force-dynamic";
 export default async function Home() {
   //*/ FETCH: site and electrician data from server
   const electricianData: ElectricianData[] = await getData(
-    `https://api.jsonbin.io/v3/b/${process.env.ELECTRICIAN_DATA_BIN}`
+    `https://api.jsonbin.io/v3/b/65451f570574da7622c19b08`
   );
   const siteData: SiteData[] = await getData(
-    `https://api.jsonbin.io/v3/b/${process.env.SITE_DATA_BIN}`
+    `https://api.jsonbin.io/v3/b/65451ee912a5d376599472e4`
   );
 
   return (
