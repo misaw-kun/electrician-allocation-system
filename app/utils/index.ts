@@ -3,6 +3,16 @@ export const formatDate = (dateString: string): string => {
 };
 
 export async function getData(url: string) {
+  // for testing on vercel
+  console.log({
+    test: {
+      "X-Master-Key": `${process.env.API_MASTER_KEY}`,
+      "X-Access-Key": `${process.env.API_ACCESS_KEY}`,
+      site_bin: `${process.env.SITE_DATA_BIN}`,
+      elec_bin: `${process.env.ELECTRICIAN_DATA_BIN}`,
+    },
+  });
+
   const res = await fetch(url, {
     headers: {
       "X-Master-Key": `${process.env.API_MASTER_KEY}`,
