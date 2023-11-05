@@ -1,8 +1,3 @@
-export const AuthHeaders = {
-  "X-Master-Key": String(process.env.API_MASTER_KEY),
-  "X-Access-Key": String(process.env.API_ACCESS_KEY),
-};
-
 export const formatDate = (dateString: string): string => {
   return dateString.split("T")[0];
 };
@@ -10,10 +5,8 @@ export const formatDate = (dateString: string): string => {
 export async function getData(url: string) {
   const res = await fetch(url, {
     headers: {
-      "X-Master-Key":
-        "$2a$10$DCBjbzYJ/qk1pTwt./HlAufkczjKCv6vHxl6Q55mWatH8K.sDnoFe",
-      "X-Access-Key":
-        "$2a$10$hHaTY5BBnGIhNLgeopMHv.MdIBPpgq8gIvaTUHdL72cmQHmOz9YQO",
+      "X-Master-Key": `${process.env.API_MASTER_KEY}`,
+      "X-Access-Key": `${process.env.API_ACCESS_KEY}`,
       "X-Bin-Meta": "false",
     },
     next: { revalidate: 30 },
