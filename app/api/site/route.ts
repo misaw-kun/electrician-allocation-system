@@ -1,4 +1,4 @@
-import { getData, AuthHeaders } from "@/app/utils";
+import { getData } from "@/app/utils";
 
 export async function GET() {
   const data = await getData(
@@ -16,7 +16,8 @@ export async function PUT(request: Request) {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          ...AuthHeaders,
+          "X-Master-Key": `${process.env.API_MASTER_KEY}`,
+          "X-Access-Key": `${process.env.API_ACCESS_KEY}`,
         },
         body: JSON.stringify(data),
       }
