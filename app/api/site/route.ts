@@ -1,8 +1,10 @@
 import { getData, AuthHeaders } from "@/app/utils";
 
 export async function GET() {
-  const data = await getData(process.env.SITE_DATA_BIN as string);
-  Response.json(data);
+  const data = await getData(
+    `https://api.jsonbin.io/v3/b/${process.env.SITE_DATA_BIN}`
+  );
+  return Response.json(data);
 }
 
 export async function PUT(request: Request) {

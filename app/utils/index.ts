@@ -14,7 +14,7 @@ export async function getData(url: string): Promise<unknown[] | undefined> {
         ...AuthHeaders,
         "X-Bin-Meta": "false",
       },
-      next: { revalidate: 60 },
+      next: { revalidate: 30 },
     });
 
     const data = await res.json();

@@ -23,7 +23,7 @@ const Toast = ({
 
   return (
     <div
-      className={`fixed top-4 right-4 transform transition-transform ${
+      className={`z-5 fixed top-4 right-4 transform transition-transform ${
         visible ? "translate-x-0" : "translate-x-full"
       } ease-in-out duration-300 bg-black text-white p-4 rounded shadow-md`}
     >

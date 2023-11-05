@@ -58,7 +58,7 @@ export default async function Home() {
         </table>
       </div>
 
-      <SiteDataTable siteData={siteData} />
+      <SiteDataTable initialSiteData={siteData} />
     </>
   );
 }

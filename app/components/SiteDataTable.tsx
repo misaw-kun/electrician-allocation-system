@@ -1,12 +1,36 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "./DatePicker";
 import Toast from "./Toast";
 
-const SiteDataTable = ({ siteData }: { siteData: SiteData[] }) => {
-  const [data, setData] = useState(siteData);
+const SiteDataTable = ({
+  initialSiteData,
+}: {
+  initialSiteData: SiteData[];
+}) => {
+  const [data, setData] = useState(initialSiteData);
   const [toastVisible, setToastVisible] = useState(false);
   const [message, setMessage] = useState("");
+
+  // // * / FETCH: updated site data
+  // useEffect(() => {
+  //   // */ GET request to fetch updated data
+  //   fetch("/api/site", {
+  //     method: "GET",
+  //   })
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw new Error("Internal Server Error");
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       setData(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
+  // }, []);
 
   //*/ optimistically update UI then send a PUT req to server
   const handleUpdateDate = (siteName: string, newDate: string) => {
