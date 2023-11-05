@@ -33,7 +33,7 @@ const DatePicker = ({
         Date: {formatDate(site.InstallationDate)}
       </p>
       <input
-        className="border-gray-600 border mb-2 p-1 rounded cursor-pointer"
+        className="border-gray-600 border mb-2 p-1 rounded cursor-pointer block"
         type="date"
         value={newDate}
         min={new Date().toISOString().split("T")[0]}
