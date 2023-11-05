@@ -94,7 +94,7 @@ const SiteDataTable = ({
           </tr>
         </thead>
         <tbody>
-          {data.map((site, index) => (
+          {data?.map((site, index) => (
             <tr
               key={index}
               className={index % 2 === 1 ? "bg-gray-50" : "bg-white"}

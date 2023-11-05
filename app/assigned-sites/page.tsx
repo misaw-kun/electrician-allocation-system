@@ -48,7 +48,7 @@ export default async function Page({
           Auto Assigned Sites ✨⚡
         </h1>
         {/* CHECK: if NO ASSIGNMENTS for the given date */}
-        {flattenedData.length > 0 ? (
+        {flattenedData?.length > 0 ? (
           <table className="table-fixed w-full ">
             <thead>
               <tr>

@@ -39,7 +39,7 @@ export default async function Home() {
             </tr>
           </thead>
           <tbody>
-            {electricianData.map((electrician, index) => (
+            {electricianData?.map((electrician, index) => (
               <tr
                 key={index}
                 className={index % 2 === 1 ? "bg-gray-50" : "bg-white"}
